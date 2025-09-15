@@ -3,7 +3,7 @@ package com.pantapp.pant_backend.model;
 import jakarta.persistence.*;
 
 @Entity
-public class PantRequest {
+public class  PantRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -64,4 +64,8 @@ public class PantRequest {
     public void setAmount(String amount){
         this.amount = amount;
     }
+
+    public RequestType getRequestType() { return requestType; }
+
+    public void setRequestType(RequestType requestType) { this.requestType = requestType; }
 }

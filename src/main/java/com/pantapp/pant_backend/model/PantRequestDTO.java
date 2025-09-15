@@ -58,5 +58,9 @@ public class PantRequestDTO {
         this.amount = amount;
     }
 
+    public RequestType getRequestType() { return requestType; }
+
+    public void setRequestType(RequestType requestType) { this.requestType = requestType; }
+
 
 }
