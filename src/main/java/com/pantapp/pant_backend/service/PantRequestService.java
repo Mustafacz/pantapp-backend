@@ -6,6 +6,8 @@ import com.pantapp.pant_backend.repository.PantRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PantRequestService {
 
@@ -25,5 +27,9 @@ public class PantRequestService {
         request.setRequestType(dto.getRequestType());
 
         return pantRequestRepository.save(request);
+    }
+
+    public List<PantRequest> getAllRequests() {
+        return pantRequestRepository.findAll();
     }
 }

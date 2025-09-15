@@ -5,10 +5,9 @@ import com.pantapp.pant_backend.model.PantRequest;
 import com.pantapp.pant_backend.model.PantRequestDTO;
 import com.pantapp.pant_backend.service.PantRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/requests")
@@ -21,5 +20,10 @@ public class PantRequestController {
     @PostMapping
     public PantRequest createRequst(@RequestBody PantRequestDTO dto) {
         return pantRequestService.createPantRequest(dto);
+    }
+
+    @GetMapping
+    public List<PantRequest> getAllRequests() {
+        return pantRequestService.getAllRequests();
     }
 }
