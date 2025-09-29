@@ -32,4 +32,17 @@ public class PantRequestService {
     public List<PantRequest> getAllRequests() {
         return pantRequestRepository.findAll();
     }
+
+    public PantRequest updatedRequest(Long id, PantRequest updatedRequest) {
+        return pantRequestRepository.findById(id)
+                .map(existingRequest -> {
+                    existingRequest.setEmail(updatedRequest.getEmail());
+                    existingRequest.setPhoneNumber(updatedRequest.getPhoneNumber());
+                    existingRequest.setAddress(updatedRequest.getAddress());
+                    existingRequest.setAmount(updatedRequest.getAmount());
+                    existingRequest.setRequestType(updatedRequest.getRequestType());
+                    return pantRequestRepository.save(existingRequest);
+                })
+                .orElseThrow(() -> new RuntimeException("Request not found with id " + id ));
+    }
 }

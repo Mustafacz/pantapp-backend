@@ -26,4 +26,9 @@ public class PantRequestController {
     public List<PantRequest> getAllRequests() {
         return pantRequestService.getAllRequests();
     }
+
+    @PutMapping("/{id}")
+    public PantRequest updateRequest(@PathVariable Long id, @RequestBody PantRequest request) {
+        return pantRequestService.updatedRequest(id, request);
+    }
 }
