@@ -45,4 +45,13 @@ public class PantRequestService {
                 })
                 .orElseThrow(() -> new RuntimeException("Request not found with id " + id ));
     }
+
+    public void deleteRequest(Long id) {
+        if (!pantRequestRepository.existsById(id)) {
+            throw new RuntimeException("Request not found with id " + id);
+        }
+        pantRequestRepository.deleteById(id);
+    }
+
+
 }

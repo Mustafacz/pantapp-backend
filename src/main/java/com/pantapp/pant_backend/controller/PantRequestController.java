@@ -31,4 +31,9 @@ public class PantRequestController {
     public PantRequest updateRequest(@PathVariable Long id, @RequestBody PantRequest request) {
         return pantRequestService.updatedRequest(id, request);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteRequest(@PathVariable Long id) {
+        pantRequestService.deleteRequest(id);
+    }
 }
